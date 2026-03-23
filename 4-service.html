@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Services | Brevon Corporate Services</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#b8c4ff",
+                        "on-primary-container": "#708cfd",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "on-primary-fixed-variant": "#173bab",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#00114a",
+                        "on-secondary-container": "#5c647a",
+                        "outline": "#757682",
+                        "surface-tint": "#3755c3",
+                        "error": "#ba1a1a",
+                        "primary-container": "#00227a",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#00163a",
+                        "on-surface-variant": "#454651",
+                        "inverse-on-surface": "#eff1f3",
+                        "outline-variant": "#c5c5d3",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#002a62",
+                        "on-surface": "#191c1e",
+                        "secondary-container": "#dae2fd",
+                        "secondary": "#565e74",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed": "#001a42",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed": "#001453",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#5491ff",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#bec6e0"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+        }
+
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        /* Scroll Reveal CSS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Reveal Staggering */
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body antialiased">
+
+    <nav
+        class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-md shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-white font-headline">Brevon</div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-manrope text-sm font-semibold tracking-tight"
+                    href="index.html">Home</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-manrope text-sm font-semibold tracking-tight"
+                    href="about.html">About Us</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-manrope text-sm font-semibold tracking-tight"
+                    href="service.html">Services</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-manrope text-sm font-semibold tracking-tight"
+                    href="#">Pages</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-manrope text-sm font-semibold tracking-tight"
+                    href="#">Blog</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-manrope text-sm font-semibold tracking-tight"
+                    href="contact.html">Contact</a>
+            </div>
+            <button
+                class="bg-primary text-on-primary px-6 py-2.5 rounded hover:opacity-80 transition-all duration-300 scale-95 active:scale-100 font-manrope text-sm font-semibold">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <header class="bg-primary-container text-on-primary py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10 reveal">
+            <nav aria-label="Breadcrumb" class="flex mb-6 text-sm font-medium opacity-80">
+                <span class="hover:text-white cursor-pointer">Home</span>
+                <span class="mx-2 text-on-primary-container">></span>
+                <span class="text-white">Services</span>
+            </nav>
+            <h1 class="text-6xl md:text-7xl font-headline font-extrabold tracking-tighter leading-tight mb-4">
+                Our Services
+            </h1>
+            <p class="max-w-2xl text-lg text-on-primary-container font-body leading-relaxed">
+                Strategic solutions tailored to elevate your corporate performance and drive sustainable growth in a
+                global market.
+            </p>
+        </div>
+        <div class="absolute inset-0 opacity-10 pointer-events-none"
+            style="background-image: radial-gradient(circle, #708cfd 1px, transparent 1px); background-size: 40px 40px;">
+        </div>
+    </header>
+
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+                class="group bg-surface-container-lowest p-8 rounded shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-outline-variant/15 reveal stagger-1">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-4xl font-headline font-bold text-outline-variant">001</span>
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline font-bold text-primary mb-6">Strategic Planning</h3>
+                <div class="flex gap-2 mb-8 bg-surface-container rounded-full p-1 w-fit">
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase bg-white text-primary rounded-full shadow-sm">PLAN</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">EXECUTE</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">SUCCEED</button>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed flex-grow">Defining vision and identifying actionable
+                    goals to position your business for long-term dominance.</p>
+            </div>
+            <div
+                class="group bg-surface-container-lowest p-8 rounded shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-outline-variant/15 reveal stagger-2">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-4xl font-headline font-bold text-outline-variant">002</span>
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline font-bold text-primary mb-6">Financial Auditing</h3>
+                <div class="flex gap-2 mb-8 bg-surface-container rounded-full p-1 w-fit">
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase bg-white text-primary rounded-full shadow-sm">PLAN</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">EXECUTE</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">SUCCEED</button>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed flex-grow">Meticulous assessment of financial health
+                    to ensure compliance and fiscal optimization across all channels.</p>
+            </div>
+            <div
+                class="group bg-surface-container-lowest p-8 rounded shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-outline-variant/15 reveal stagger-3">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-4xl font-headline font-bold text-outline-variant">003</span>
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline font-bold text-primary mb-6">Market Research</h3>
+                <div class="flex gap-2 mb-8 bg-surface-container rounded-full p-1 w-fit">
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase bg-white text-primary rounded-full shadow-sm">PLAN</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">EXECUTE</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">SUCCEED</button>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed flex-grow">Deep dive into consumer trends and
+                    competitor landscapes to uncover high-growth opportunities.</p>
+            </div>
+            <div
+                class="group bg-surface-container-lowest p-8 rounded shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-outline-variant/15 reveal stagger-1">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-4xl font-headline font-bold text-outline-variant">004</span>
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline font-bold text-primary mb-6">Risk Management</h3>
+                <div class="flex gap-2 mb-8 bg-surface-container rounded-full p-1 w-fit">
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase bg-white text-primary rounded-full shadow-sm">PLAN</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">EXECUTE</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">SUCCEED</button>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed flex-grow">Identifying potential hurdles and
+                    implementing robust mitigation strategies to protect your assets.</p>
+            </div>
+            <div
+                class="group bg-surface-container-lowest p-8 rounded shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-outline-variant/15 reveal stagger-2">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-4xl font-headline font-bold text-outline-variant">005</span>
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline font-bold text-primary mb-6">Human Capital</h3>
+                <div class="flex gap-2 mb-8 bg-surface-container rounded-full p-1 w-fit">
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase bg-white text-primary rounded-full shadow-sm">PLAN</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">EXECUTE</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">SUCCEED</button>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed flex-grow">Developing talent acquisition and retention
+                    frameworks that foster a high-performance corporate culture.</p>
+            </div>
+            <div
+                class="group bg-surface-container-lowest p-8 rounded shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-outline-variant/15 reveal stagger-3">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-4xl font-headline font-bold text-outline-variant">006</span>
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-headline font-bold text-primary mb-6">Digital Transformation</h3>
+                <div class="flex gap-2 mb-8 bg-surface-container rounded-full p-1 w-fit">
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase bg-white text-primary rounded-full shadow-sm">PLAN</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">EXECUTE</button>
+                    <button
+                        class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase text-secondary hover:text-primary">SUCCEED</button>
+                </div>
+                <p class="text-on-surface-variant leading-relaxed flex-grow">Integrating cutting-edge technology to
+                    streamline operations and enhance the digital customer experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row bg-primary overflow-hidden reveal">
+        <div class="md:w-1/2 relative h-[400px] md:h-auto">
+            <img alt="Professional woman in business suit" class="absolute inset-0 w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBdb--gAw8FzJl3ug6qO1bKdGi0pwbvKnsiBYRWG46H_8PyMhHtFmAAFQ2IhgD02YoDRdDDQvhwUsL8ovjmaEWx8S6YiELKMCQCJHyDPbuH7Nx424mm8ErGD8hBx2cpEopkjO7jr_-CfvPn4X_Q5I5bkfNTBJsOuEUd461511aOLh2dosUzf-gTfaKy81n_ozgmPjdaRzosMeG4PYVC7CLG_sAdGNVJy6BHfO5oj38G_sqFZjTbVewbx7on_vWjZLrI6jjQl2PRXI" />
+        </div>
+        <div class="md:w-1/2 p-12 md:p-24 flex flex-col justify-center">
+            <span class="text-on-primary-container font-label text-xs tracking-[0.2em] mb-4 uppercase font-bold">Contact
+                Us</span>
+            <h2 class="text-4xl font-headline font-extrabold text-white mb-8">Send Us A Message</h2>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <input
+                            class="w-full bg-primary-container/30 border-none rounded-lg p-4 text-white placeholder:text-on-primary-container focus:ring-2 focus:ring-surface-tint"
+                            placeholder="Your Name" type="text" />
+                    </div>
+                    <div>
+                        <input
+                            class="w-full bg-primary-container/30 border-none rounded-lg p-4 text-white placeholder:text-on-primary-container focus:ring-2 focus:ring-surface-tint"
+                            placeholder="Email Address" type="email" />
+                    </div>
+                </div>
+                <div>
+                    <textarea
+                        class="w-full bg-primary-container/30 border-none rounded-lg p-4 text-white placeholder:text-on-primary-container focus:ring-2 focus:ring-surface-tint"
+                        placeholder="Project Description" rows="4"></textarea>
+                </div>
+                <button
+                    class="w-full md:w-auto px-10 py-4 bg-on-primary text-primary font-bold rounded hover:bg-on-primary-container transition-all shadow-lg"
+                    type="submit">Submit Message</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto text-center mb-16 reveal">
+            <span class="text-primary font-label text-xs tracking-[0.2em] mb-4 uppercase font-bold inline-block">Pricing
+                Plans</span>
+            <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-8">Explore Our Business Pricing
+                Options</h2>
+            <div class="flex items-center justify-center gap-4">
+                <span class="text-sm font-semibold text-secondary">Monthly</span>
+                <div class="w-14 h-7 bg-primary rounded-full relative cursor-pointer flex items-center px-1">
+                    <div class="w-5 h-5 bg-white rounded-full"></div>
+                </div>
+                <span class="text-sm font-semibold text-secondary">Yearly <span
+                        class="text-on-tertiary-container ml-1">(Save 20%)</span></span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-lg transition-all border border-outline-variant/10 reveal stagger-1">
+                <h4 class="text-xl font-headline font-bold mb-2">Basic</h4>
+                <div class="text-4xl font-headline font-extrabold mb-6">$49<span
+                        class="text-sm font-normal text-secondary">/mo</span></div>
+                <ul class="space-y-4 mb-10 text-left">
+                    <li class="flex items-center gap-3 text-secondary">
+                        <span class="material-symbols-outlined text-on-primary-container text-sm"
+                            data-icon="check_circle">check_circle</span> Strategic Audit
+                    </li>
+                    <li class="flex items-center gap-3 text-secondary">
+                        <span class="material-symbols-outlined text-on-primary-container text-sm"
+                            data-icon="check_circle">check_circle</span> Market Analysis (Lite)
+                    </li>
+                    <li class="flex items-center gap-3 text-secondary">
+                        <span class="material-symbols-outlined text-on-primary-container text-sm"
+                            data-icon="check_circle">check_circle</span> Email Support
+                    </li>
+                </ul>
+                <button
+                    class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">Choose
+                    Basic</button>
+            </div>
+            <div
+                class="bg-primary-container p-10 rounded-xl shadow-2xl scale-105 relative z-10 border-2 border-on-primary-container/30 reveal stagger-2">
+                <div
+                    class="absolute top-0 right-10 -translate-y-1/2 bg-on-tertiary-container text-primary text-[10px] font-bold px-4 py-1.5 rounded-full tracking-widest uppercase">
+                    Recommended</div>
+                <h4 class="text-xl font-headline font-bold text-white mb-2">Business</h4>
+                <div class="text-4xl font-headline font-extrabold text-white mb-6">$149<span
+                        class="text-sm font-normal text-on-primary-container">/mo</span></div>
+                <ul class="space-y-4 mb-10 text-left">
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="material-symbols-outlined text-on-tertiary-container text-sm"
+                            data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span> Full
+                        Strategic Planning
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="material-symbols-outlined text-on-tertiary-container text-sm"
+                            data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Competitor Benchmarking
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="material-symbols-outlined text-on-tertiary-container text-sm"
+                            data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Priority Support 24/7
+                    </li>
+                </ul>
+                <button
+                    class="w-full py-3 bg-white text-primary font-bold rounded-lg hover:bg-on-primary-container hover:text-white transition-colors">Choose
+                    Business</button>
+            </div>
+            <div
+                class="bg-surface-container-lowest p-10 rounded-xl shadow-sm hover:shadow-lg transition-all border border-outline-variant/10 reveal stagger-3">
+                <h4 class="text-xl font-headline font-bold mb-2">Enterprise</h4>
+                <div class="text-4xl font-headline font-extrabold mb-6">$499<span
+                        class="text-sm font-normal text-secondary">/mo</span></div>
+                <ul class="space-y-4 mb-10 text-left">
+                    <li class="flex items-center gap-3 text-secondary">
+                        <span class="material-symbols-outlined text-on-primary-container text-sm"
+                            data-icon="check_circle">check_circle</span> Custom Global Audits
+                    </li>
+                    <li class="flex items-center gap-3 text-secondary">
+                        <span class="material-symbols-outlined text-on-primary-container text-sm"
+                            data-icon="check_circle">check_circle</span> Human Capital Framework
+                    </li>
+                    <li class="flex items-center gap-3 text-secondary">
+                        <span class="material-symbols-outlined text-on-primary-container text-sm"
+                            data-icon="check_circle">check_circle</span> Dedicated Account Lead
+                    </li>
+                </ul>
+                <button
+                    class="w-full py-3 border border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">Choose
+                    Enterprise</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-y border-outline-variant/10 reveal">
+        <div class="max-w-7xl mx-auto px-6 overflow-hidden">
+            <div class="flex flex-wrap justify-between items-center opacity-40 grayscale gap-12">
+                <span class="text-2xl font-bold font-headline tracking-tighter">PORTER</span>
+                <span class="text-2xl font-bold font-headline tracking-tighter">QUIZLET</span>
+                <span class="text-2xl font-bold font-headline tracking-tighter">VANGUARD</span>
+                <span class="text-2xl font-bold font-headline tracking-tighter">LUMINA</span>
+                <span class="text-2xl font-bold font-headline tracking-tighter">ECHO</span>
+                <span class="text-2xl font-bold font-headline tracking-tighter">APEX</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary py-20 px-6 reveal">
+        <div
+            class="max-w-7xl mx-auto bg-primary-container rounded-2xl p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
+            <div class="relative z-10 max-w-xl">
+                <h3 class="text-3xl md:text-4xl font-headline font-extrabold text-white mb-4">Corporate Business
+                    Solutions</h3>
+                <p class="text-on-primary-container">Join 2,500+ professionals receiving our bi-weekly strategic
+                    insights.</p>
+            </div>
+            <div class="relative z-10 w-full md:w-auto">
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input
+                        class="px-6 py-4 rounded-lg bg-white/10 border-none text-white placeholder:text-on-primary-container min-w-[300px] focus:ring-2 focus:ring-on-tertiary-container"
+                        placeholder="Email address" type="email" />
+                    <button
+                        class="bg-white text-primary font-bold px-8 py-4 rounded-lg hover:bg-on-primary-container transition-colors">Subscribe</button>
+                </form>
+            </div>
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-on-primary-container/5 rounded-full blur-3xl"></div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-950 dark:bg-black text-white dark:text-slate-300 w-full px-8 py-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+            <div class="max-w-xs">
+                <div class="text-xl font-bold text-white mb-6 font-headline">Brevon</div>
+                <p class="text-slate-400 font-inter text-sm leading-relaxed">Pioneering architectural excellence in
+                    corporate strategy and financial consulting across 45 global markets.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div>
+                    <h5 class="font-bold text-white mb-6 text-sm uppercase tracking-widest">Company</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a class="text-slate-400 hover:text-white transition-colors" href="#">About Us</a></li>
+                        <li><a class="text-slate-400 hover:text-white transition-colors" href="#">Leadership</a></li>
+                        <li><a class="text-slate-400 hover:text-white transition-colors" href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-6 text-sm uppercase tracking-widest">Resources</h5>
+                    <ul class="space-y-4 text-sm">
+                        <li><a class="text-slate-400 hover:text-white transition-colors" href="#">Insights</a></li>
+                        <li><a class="text-slate-400 hover:text-white transition-colors" href="#">Whitepapers</a></li>
+                        <li><a class="text-slate-400 hover:text-white transition-colors" href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 md:col-span-1">
+                    <h5 class="font-bold text-white mb-6 text-sm uppercase tracking-widest">Contact</h5>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+                            One World Trade Center, NY
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-xs" data-icon="mail">mail</span>
+                            contact@brevon.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="font-inter text-sm text-slate-400">© 2024 Brevon Corporate Services. All rights reserved.</p>
+            <div class="flex gap-8">
+                <a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+                <a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+                <a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Cookie Settings</a>
+                <a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Global Offices</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Un-comment the line below if you only want it to reveal once
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+
+</html>

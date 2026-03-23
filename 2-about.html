@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us | Sapphire Corporate</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#dae2fd",
+                        "primary-fixed": "#dde1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#454651",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary": "#00114a",
+                        "secondary": "#565e74",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "surface-tint": "#3755c3",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#5c647a",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#708cfd",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#00163a",
+                        "outline-variant": "#c5c5d3",
+                        "outline": "#757682",
+                        "on-primary-fixed": "#001453",
+                        "tertiary-container": "#002a62",
+                        "inverse-primary": "#b8c4ff",
+                        "surface": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#5491ff",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "secondary-fixed": "#dae2fd",
+                        "primary-container": "#00227a",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "on-primary-fixed-variant": "#173bab"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Scroll Reveal Styles --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
+            will-change: transform, opacity;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.9s ease-out;
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Staggered Delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+
+<header class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-md font-['Manrope'] font-semibold text-sm tracking-tight docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none">
+    <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+        <div class="text-xl font-bold text-blue-900 dark:text-white tracking-tighter">Sapphire Corporate</div>
+        <nav class="hidden md:flex gap-8 items-center">
+            <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:text-blue-700 transition-colors duration-200" href="index.html">Home</a>
+            <a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 pb-1 hover:text-blue-700 transition-colors duration-200" href="about.html">About Us</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:text-blue-700 transition-colors duration-200" href="service.html">Services</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:text-blue-700 transition-colors duration-200" href="#">Pages</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:text-blue-700 transition-colors duration-200" href="#">Blog</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:text-blue-700 transition-colors duration-200" href="contact.html">Contact</a>
+        </nav>
+        <button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-bold scale-95 active:scale-100 transition-transform">Get a Quote</button>
+    </div>
+</header>
+
+<section class="bg-primary py-24 md:py-32 text-center">
+    <div class="max-w-7xl mx-auto px-8">
+        <h1 class="font-headline font-extrabold text-white text-5xl md:text-7xl mb-6 tracking-tighter reveal">About Us</h1>
+        <nav class="flex justify-center items-center gap-2 text-on-primary-container font-label text-sm uppercase tracking-widest reveal delay-200">
+            <a class="hover:text-white transition-colors" href="#">Home</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-white">About Us</span>
+        </nav>
+    </div>
+</section>
+
+<section class="py-24 bg-surface overflow-hidden">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <div class="space-y-6 reveal-left">
+                <span class="text-on-primary-container font-label text-xs font-bold uppercase tracking-[0.2em]">Our Introduction</span>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl text-primary leading-tight">Building A Strong Foundations Businesses To Thrive Evolve, Lead With Confidence.</h2>
+            </div>
+            <div class="space-y-6 reveal delay-300">
+                <p class="text-on-surface-variant text-lg leading-relaxed">
+                    At Sapphire Corporate, we understand that true business success is built on a foundation of strategic excellence and unwavering integrity. Our consultancy services are designed to navigate the complexities of modern industry standards while fostering sustainable growth.
+                </p>
+                <p class="text-on-surface-variant text-lg leading-relaxed">
+                    Through rigorous analysis and bespoke solutions, we empower organizations to transform their operational challenges into competitive advantages, ensuring they lead their markets with absolute confidence.
+                </p>
+                <div class="pt-4">
+                    <button class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+                        Learn More About Our Methodology
+                        <span class="material-symbols-outlined">arrow_right_alt</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pb-32 bg-surface">
+    <div class="max-w-7xl mx-auto px-8 relative">
+        <div class="w-full h-[400px] md:h-[600px] rounded-xl overflow-hidden shadow-2xl reveal">
+            <img class="w-full h-full object-cover" alt="Modern collaborative workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYXVWoq52esIacAEvWR4PXqWuTR4gYSA9G_BOLXGewLjopn3WcHIGidTEUvxyQoJnSuxvdimebgrlZr3vR1Ocllqohe92X8-Icu_btvZk-O8GEdoWpUBxldyNLCg-jW3MQzUIlb_bQcKD4Nv8rU5rQVwoRZZFNb54BR6i1aC46cePduJ_soL6bMVnQL40uABQIwWfMQdrWDHx4GTrjw337WWaNIO-Q6Q1g37nmyyCPTTyLj9nok-60QuQZ9gpfKNJnoLBrHZQfpK8"/>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 relative z-10 px-4 md:px-12">
+            <div class="bg-surface-container-lowest p-10 rounded-xl shadow-xl border border-outline-variant/10 text-center reveal delay-100">
+                <div class="text-4xl font-headline font-extrabold text-primary mb-2">65+</div>
+                <div class="text-on-surface-variant font-label uppercase tracking-widest text-xs">Corporate Partners</div>
+            </div>
+            <div class="bg-surface-container-lowest p-10 rounded-xl shadow-xl border border-outline-variant/10 text-center reveal delay-300">
+                <div class="text-4xl font-headline font-extrabold text-primary mb-2">24K</div>
+                <div class="text-on-surface-variant font-label uppercase tracking-widest text-xs">Business Projects</div>
+            </div>
+            <div class="bg-surface-container-lowest p-10 rounded-xl shadow-xl border border-outline-variant/10 text-center reveal delay-500">
+                <div class="text-4xl font-headline font-extrabold text-primary mb-2">81%</div>
+                <div class="text-on-surface-variant font-label uppercase tracking-widest text-xs">Strategic Growth</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-primary-container py-12 border-y border-white/10 overflow-hidden">
+    <div class="marquee-container">
+        <div class="marquee-content flex gap-12 items-center text-white font-headline font-extrabold text-4xl md:text-6xl tracking-tighter opacity-80">
+            <span>GROWTH</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>SUCCESS</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>LEADERSHIP</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>TRUST</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>GROWTH</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>SUCCESS</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>LEADERSHIP</span> <span class="text-on-primary-container text-2xl">•</span>
+            <span>TRUST</span> <span class="text-on-primary-container text-2xl">•</span>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 reveal">
+            <div class="max-w-2xl">
+                <span class="text-on-primary-container font-label text-xs font-bold uppercase tracking-[0.2em]">Our Experts</span>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl text-primary mt-4">Our Dedicated Team Of Experts.</h2>
+            </div>
+            <button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-primary-container transition-colors">
+                More Member
+                <span class="material-symbols-outlined text-sm">add</span>
+            </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group reveal">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" alt="Shikkon Islam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABYzND-52kXiuI0acEKlCjW0-AK2mt3DVWc3DdQ6F8xnp2LlLpuLzZdV5azmHh3wuucZ5yXsEqhlxLGdvHL30JwchEfqY_U9LkgBwDsRaF-LLSE_0soZjFcoI7qsOFOf7jrQS39D7AsUavODkF6YYBJbnJlC9u9OsG9bCLn1O8D5ThFIh1sLHD3asOb2yOxQOClRBV8JaoYIy8w1DqPALrYaRrLq6CDo3i5fzHsY7no1uCv4yBng79NU1MLod2voO7kU08vX_Tuag"/>
+                </div>
+                <h3 class="font-headline font-bold text-xl text-primary">Shikkon Islam</h3>
+                <p class="text-on-surface-variant font-label text-sm uppercase tracking-widest mt-1">Senior Officer</p>
+            </div>
+            <div class="group reveal delay-200">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" alt="Michael Thompson" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDobIaEaJkJRtnksQXww0iQrEnKQApNb04ioSKBHPppyEgWAejsWAP-8Xf208bwmVywW3IJ-N2mYgXmCGaexHw0dv3OtlaNoyvS-muV_ip5EgfxwLYSAkzDSK8coHEhVo8fnVrt3Quu1TxhhbdDhbSpJkExlbqPtUF_vxkX7Sf9d6xB_KD7XXPDiI5IHN7YnZ-v55pTrfIV-3mRWbJkwyCS_kbD_5PrE0E7rYAwrX62-6RBUEX8pQFdn2eNBcwEWLJV-wkJ45xmqcg"/>
+                </div>
+                <h3 class="font-headline font-bold text-xl text-primary">Michael Thompson</h3>
+                <p class="text-on-surface-variant font-label text-sm uppercase tracking-widest mt-1">Senior Officer</p>
+            </div>
+            <div class="group reveal delay-400">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" alt="John Davies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbTD9ylMv6y108Pp2av1fkroslAE3MZcx37VTEEKVHqSoHM9LKJ1UWjkWgu_8NmORtwbdOAU_2M3jNbAAMXr5I4rndCDZ1DhQiqmpD9dAxHvLt24wb1HGWiiZDEQwd-kV1n7ZYQ7RFMIPVmYXotDVB5QKusF_eoDhmXHavHFN5vjojuhN3soQgsdfj5CYkuvlK2Z5tZWqqUum3N1tCIOF6OORjbG6ztpiM9ck7E6aE8PJop_FwFv7R-c23tbpv6yh7JxV73nvSkCo"/>
+                </div>
+                <h3 class="font-headline font-bold text-xl text-primary">John Davies</h3>
+                <p class="text-on-surface-variant font-label text-sm uppercase tracking-widest mt-1">Senior Officer</p>
+            </div>
+            <div class="group reveal delay-500">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" alt="Sarah Johnson" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYDTu4kHF1Rx4twPeQLLLtUMqjQfDVDbrK5kLFQmEYf25JP0yingKEx4Ap-07WoPCu1w59yG0vITn6yhLNxKxNrvPOKwCcs4v8EJT1UlIltwbt8Ch36vcdlWWRVRuWTqaFDKOUb-G8v5Mv1NwZfF1IDo2qJ45ycsH2MvWvCNl5R9wOLfn3XkaNA5j5zgBDpo35ObAP81Z728sXisFyugm4j_bAzcfl9FXU5dvlKTNjY2Hay0Ji1LJNo-Rgw75j6VXJrMb8wcJDsSg"/>
+                </div>
+                <h3 class="font-headline font-bold text-xl text-primary">Sarah Johnson</h3>
+                <p class="text-on-surface-variant font-label text-sm uppercase tracking-widest mt-1">Senior Officer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-16 reveal">
+            <span class="text-on-primary-container font-label text-xs font-bold uppercase tracking-[0.2em]">Testimonials</span>
+            <h2 class="font-headline font-bold text-4xl text-primary mt-4">What Our Clients Say.</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm reveal delay-100">
+                <div class="flex gap-1 mb-6 text-amber-400">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-on-surface text-lg italic mb-8">"The strategic approach Sapphire Corporate brought to our expansion project was transformative."</p>
+                <div class="flex items-center gap-4">
+                    <img class="w-12 h-12 rounded-full object-cover" alt="Robert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWkEz9odPZy18Ico025BkOupzjxqnv6_Agzwq5-tmDzCelc4si4rgMSI_8hbNJroxhw51nv63L1vDQxZc5PpOdQvVGCvBr3iH5wMXVc9jy410-NsM2ymuP2wzLqndimH9jN3QykFv1GtZ3poTeg9Q2E7yJCq_rDUFK-Ha-qYl4pOUHxDJS-z3Byfauk8hv8qt-ww_A2cSim8fCRDDuxisKX9aA6uwiYhyIlVb_Zza1a6leJ6iaJiCHXdx35sXW3YV-dlGr84taIs"/>
+                    <div>
+                        <h4 class="font-bold text-primary">Robert Allison</h4>
+                        <p class="text-xs text-on-surface-variant">CEO, TechPioneer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm reveal delay-300">
+                <div class="flex gap-1 mb-6 text-amber-400">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-on-surface text-lg italic mb-8">"Working with their team felt like a true partnership. They delivered exceptional value."</p>
+                <div class="flex items-center gap-4">
+                    <img class="w-12 h-12 rounded-full object-cover" alt="Kevin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiJBflm5YJ9PuPMa5SvETg3PnO4ixwpD8s8UgBZKsyLtSARhRF3nL7Z1tTQY7ctqWwmLu1-Sg4FOCxj1vJEX7xAGeyRzRNZhVZoAQQ9oISzbzcSToNyVDHK-AVSzDK7TFThM_Mb_oa8iUow_dAWN1gc-OY3aOcguWysxnuMqs9GsQKkMyfdPZYEAwZrT6BD4camJF7C-rGZhBEGp1ab7ikJsVmOEEno4ej2YvvoZnywmB08Qp9KfTOxMEenWcgSDQwzrmEBpG1c3o"/>
+                    <div>
+                        <h4 class="font-bold text-primary">Kevin Harriees</h4>
+                        <p class="text-xs text-on-surface-variant">Director, Global Logistics</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm reveal delay-500">
+                <div class="flex gap-1 mb-6 text-amber-400">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <p class="text-on-surface text-lg italic mb-8">"Highly professional and results-oriented. They helped us identify key market opportunities."</p>
+                <div class="flex items-center gap-4">
+                    <img class="w-12 h-12 rounded-full object-cover" alt="Daniel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQBnCUBYso6_qTwdN45AKoOW8Z7IvZzkKbQPizy_RIk6e2_FJd3_cxLtehZzb3aWYNvPXU402t_rkK5T4FiQ81TxQMdW9egsBrHc0AZ09nSLyIHt3isJTWwTCf-ZMmdCACQ5iqYLX2whlefWdcly2ycSaBQjlugfFI7pBM4n3blX9Uyzts7qwfWyluEGBtGwmMJ3Av0iKJPYxw0X8vi3aSsUISWGWdleBMYsHBmoaPLkRKvAbcl5ahk1UDnWslykv9CGQyC8HfjLg"/>
+                    <div>
+                        <h4 class="font-bold text-primary">Daniel Taeloor</h4>
+                        <p class="text-xs text-on-surface-variant">Founder, Innovate Corp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="reveal-left">
+                <span class="text-on-primary-container font-label text-xs font-bold uppercase tracking-[0.2em]">Questions & Answers</span>
+                <h2 class="font-headline font-bold text-4xl md:text-5xl text-primary mt-4">Read Common Questions.</h2>
+                <p class="mt-6 text-on-surface-variant text-lg">Still have questions? Our support team is available 24/7 to help you navigate through our services.</p>
+            </div>
+            <div class="space-y-4 reveal">
+                <div class="border-b border-outline-variant py-4 group cursor-pointer">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-headline font-bold text-lg text-primary group-hover:text-surface-tint transition-colors">Do you offer SEO and digital marketing?</h3>
+                        <span class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform">expand_more</span>
+                    </div>
+                </div>
+                <div class="border-b border-outline-variant py-4 group cursor-pointer">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-headline font-bold text-lg text-primary group-hover:text-surface-tint transition-colors">How long does a project last?</h3>
+                        <span class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pb-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="bg-primary-container rounded-3xl p-12 md:p-20 text-center relative overflow-hidden reveal">
+            <div class="relative z-10">
+                <h2 class="font-headline font-extrabold text-4xl md:text-5xl text-white mb-8">Corporate Business Solutions.</h2>
+                <form class="flex flex-col md:flex-row max-w-2xl mx-auto gap-4">
+                    <input class="flex-1 px-8 py-5 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none" placeholder="Your Email Address" type="email"/>
+                    <button class="bg-white text-primary px-10 py-5 rounded-xl font-extrabold hover:bg-slate-100 transition-all">Subscribe Now</button>
+                </form>
+            </div>
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mb-32"></div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-blue-950 dark:bg-slate-950 text-white font-['Inter'] text-sm leading-relaxed full-width">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-20 w-full max-w-7xl mx-auto">
+        <div class="space-y-6">
+            <div class="text-2xl font-black text-white">Sapphire Corporate</div>
+            <p class="text-slate-400 opacity-80">Our mission is to lead organizations towards sustainable success through strategic architectural authority.</p>
+        </div>
+        <div>
+            <h4 class="text-white font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-4">
+                <li><a class="text-slate-400 hover:text-white transition-transform block" href="#">About Us</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-transform block" href="#">Our Services</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white font-bold mb-6">Legal</h4>
+            <ul class="space-y-4">
+                <li><a class="text-slate-400 hover:text-white transition-transform block" href="#">Privacy Policy</a></li>
+                <li><a class="text-slate-400 hover:text-white transition-transform block" href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white font-bold mb-6">Contact Us</h4>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-3 text-slate-400">
+                    <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+                    123 Corporate Ave, NY
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-white/5 py-8 text-center text-slate-500 text-xs">
+        © 2024 Sapphire Corporate. All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+    // Intersection Observer for Scroll Reveal
+    const observerOptions = {
+        threshold: 0.15 // Trigger when 15% of element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: stop observing once animation is done
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Track all elements with reveal classes
+    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
