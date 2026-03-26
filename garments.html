@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garments | Thenpandian Textiles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-garments {
+            background: linear-gradient(rgba(11, 17, 32, 0.7), rgba(11, 17, 32, 0.7)), 
+                        url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+
+        .category-card {
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .strength-item {
+            border-left: 3px solid var(--bs-primary);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .strength-item:hover {
+            border-left-width: 8px;
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+    <header class="header-main fixed-top" id="mainHeader">
+        <div class="container-fluid px-lg-5 d-flex justify-content-between align-items-center">
+            
+            <button class="btn btn-link text-white p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingsSidebar">
+    <i class="fa-solid fa-gear fs-4 hover-rotate"></i>
+</button>
+
+            <a class="navbar-brand fw-bold fs-3 text-white m-0" href="index.html">THENPANDIAN</a>
+            <nav class="nav-pill-wrapper d-none d-lg-block">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="garments.html">Garments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+919442228659" class="header-right-contact">
+                <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                <span>+91 9442 228 659</span>
+            </a>
+            <button class="btn btn-link text-white p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuSidebar">
+                    <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            
+        </div>
+    </header>
+
+    <section class="hero-garments d-flex align-items-center">
+        <div class="container text-center text-white">
+            <span class="text-primary fw-bold text-uppercase small mb-3 d-block" style="letter-spacing: 3px;">★ Finished Apparel</span>
+            <h1 class="display-2 fw-800">Excellence Woven Into<br>Every Garment</h1>
+        </div>
+    </section>
+
+    <section class="py-5 my-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <h2 class="display-5 fw-bold mb-4">Quality from Fiber to Finished Style</h2>
+                    <p class="lead text-primary fw-bold">Global standards for the US, Europe, and Middle East.</p>
+                </div>
+                <div class="col-lg-7 px-lg-5">
+                    <p class="text-muted fs-5">Our garment division builds on our strong textile foundation, transforming premium fabrics into high-quality finished apparel. With a focus on global standards, we cater to diverse markets including the United States, Europe and the Middle East.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase small" style="letter-spacing: 2px;">★ Our Export Collection</span>
+                <h2 class="fw-bold display-5 mt-2">What We Offer</h2>
+                <div class="mx-auto bg-primary mb-4" style="width: 60px; height: 3px;"></div>
+                <p class="text-muted mx-auto" style="max-width: 650px;">Transforming premium woven fabrics into high-quality finished apparel for global retail chains.</p>
+            </div>
+            
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="category-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Men's Export Apparel" class="w-100 h-100 object-fit-cover transition-all" style="min-height: 450px;">
+                        <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                            <h3 class="fw-bold mb-1">Men’s Wear</h3>
+                            <p class="small opacity-75 mb-0">Precision-tailored formal & semi-formal attire.</p>
+                            <div class="hover-line bg-primary mt-2" style="width: 0; height: 3px; transition: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="category-card position-relative overflow-hidden rounded-4 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=80" alt="Women's Global Fashion" class="w-100 h-100 object-fit-cover transition-all" style="min-height: 450px;">
+                        <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                            <h3 class="fw-bold mb-1">Women’s Wear</h3>
+                            <p class="small opacity-75 mb-0">Contemporary silhouettes for international retail.</p>
+                            <div class="hover-line bg-primary mt-2" style="width: 0; height: 3px; transition: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card position-relative overflow-hidden rounded-4 shadow-sm" style="height: 380px;">
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Woven Shirts">
+                        <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                            <h4 class="fw-bold mb-1">Woven Shirts</h4>
+                            <p class="small opacity-75 mb-0">Superior stitching & refined fits.</p>
+                            <div class="hover-line bg-primary mt-2" style="width: 0; height: 2px; transition: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card position-relative overflow-hidden rounded-4 shadow-sm" style="height: 380px;">
+                        <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80" alt="Bottom Wear Collection" class="w-100 h-100 object-fit-cover transition-all">
+                        <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                            <h4 class="fw-bold mb-1">Trousers & Bottoms</h4>
+                            <p class="small opacity-75 mb-0">Durable fabrics & ergonomic design.</p>
+                            <div class="hover-line bg-primary mt-2" style="width: 0; height: 2px; transition: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="category-card position-relative overflow-hidden rounded-4 shadow-sm" style="height: 380px;">
+                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80" alt="Ethnic and Designer Dresses">
+                        <div class="category-overlay p-4 d-flex flex-column justify-content-end">
+                            <h4 class="fw-bold mb-1">Dresses & Ethnic Wear</h4>
+                            <p class="small opacity-75 mb-0">Traditional grace meets modern patterns.</p>
+                            <div class="hover-line bg-primary mt-2" style="width: 0; height: 2px; transition: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 my-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-5">Our Strengths</h2>
+                    <div class="strength-item">
+                        <h5 class="fw-bold">Strong backward integration from fabric to garment</h5>
+                    </div>
+                    <div class="strength-item">
+                        <h5 class="fw-bold">Skilled workforce with industry expertise</h5>
+                    </div>
+                    <div class="strength-item">
+                        <h5 class="fw-bold">Ability to handle bulk export orders</h5>
+                    </div>
+                    <div class="strength-item">
+                        <h5 class="fw-bold">Focus on design, fit and finish</h5>
+                    </div>
+                    <div class="strength-item">
+                        <h5 class="fw-bold">Competitive pricing with global quality standards</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-5 bg-dark text-white rounded-5 h-100 d-flex flex-column justify-content-center">
+                        <h3 class="fw-bold mb-4 text-primary">Manufacturing Excellence</h3>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-primary p-3 rounded-circle"><i class="fa-solid fa-microchip"></i></div>
+                            <div><h6 class="mb-0">Advanced production processes</h6></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="bg-primary p-3 rounded-circle"><i class="fa-solid fa-scissors"></i></div>
+                            <div><h6 class="mb-0">Skilled craftsmanship</h6></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary p-3 rounded-circle"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div><h6 class="mb-0">Efficient workflow systems</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light text-center">
+        <div class="container py-5">
+            <i class="fa-solid fa-earth-americas text-primary display-4 mb-4"></i>
+            <h2 class="fw-bold">Global Presence</h2>
+            <p class="text-muted mx-auto mt-3 mb-0" style="max-width: 700px;">
+                We cater to international markets with a strong export network, delivering garments that meet diverse style preferences and compliance standards across regions.
+            </p>
+        </div>
+    </section>
+
+    <section class="container py-5 my-5 text-center">
+        <div class="bg-primary p-5 rounded-5 text-white shadow-lg">
+            <h2 class="display-6 fw-bold">Looking for a reliable garment manufacturing partner?</h2>
+            <a href="contact.html" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary mt-4">Get in Touch <i class="fa-solid fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="settingsSidebar" aria-labelledby="settingsSidebarLabel" style="width: 320px;">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold" id="settingsSidebarLabel">Settings</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body d-flex flex-column align-items-center pt-5">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold mb-0" style="color: var(--primary); letter-spacing: 1px;">THENPANDIAN</h3>
+            <p class="text-uppercase small fw-bold text-muted mt-2" id="themeStatusLabel">Dark Version</p>
+        </div>
+
+        <div class="w-100 px-4">
+            <button id="setDarkMode" class="btn w-100 py-3 mb-3 fw-bold rounded-pill shadow-sm transition-all btn-primary">
+                DARK MODE
+            </button>
+            <button id="setLightMode" class="btn w-100 py-3 fw-bold rounded-pill shadow-sm transition-all btn-outline-dark">
+                LIGHT MODE
+            </button>
+        </div>
+    </div>
+</div>
+
+    
+    
+    <div class="offcanvas offcanvas-end sidebar-custom" tabindex="-1" id="menuSidebar">
+        <div class="offcanvas-header p-4">
+            <h3 class="fw-bold m-0 text-dark">THENPANDIAN</h3>
+            <button type="button" class="sidebar-close-btn" data-bs-dismiss="offcanvas">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <div class="offcanvas-body p-4 pt-0">
+            <p class="text-muted mb-5">Delivering textile excellence for global markets through reliable manufacturing and consistent quality.</p>
+
+            <div class="contact-info-section mb-5">
+                <h4 class="fw-bold mb-4 text-dark">Contact Info</h4>
+                <div class="d-flex mb-3"><i class="fa-solid fa-location-dot text-primary me-3 mt-1"></i><p class="text-muted small mb-0">1/185 Paramathy Road, Near SIDCO <br>
+Namakkal – 637001<br>
+Tamil Nadu, India
+</p></div>
+                <div class="d-flex mb-3"><i class="fa-solid fa-envelope text-primary me-3 mt-1"></i><p class="text-muted small mb-0">thenpandiantextile@gmail.com</p></div>
+                <div class="d-flex mb-3"><i class="fa-solid fa-phone text-primary me-3 mt-1"></i><p class="text-muted small mb-0"> +91 4286 286 259
++91 9442 228 659</p></div>
+            </div>
+
+            <a href="contact.html" class="btn btn-primary w-100 py-3 rounded-pill fw-bold mb-5 shadow-sm">
+                <i class="fa-solid fa-paper-plane me-2"></i> Contact us
+            </a>
+
+            <div class="d-flex gap-2">
+                <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
