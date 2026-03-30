@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bixola - Team Carousel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-red: #ff3c41;
+            --dark-navy: #0b0d17;
+            --header-navy: #11131e;
+            --white: #ffffff;
+            --text-gray: #a5a5a5;
+            --text-main: #1c1c1c;
+            --bg-light: #f4f7fa;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-red);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 10001;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-red);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 10000;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease-out;
+        }
+
+        /* --- TOP BAR --- */
+        .top-bar {
+            background: var(--dark-navy);
+            color: var(--text-gray);
+            padding: 12px 10%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .top-info span {
+            margin-right: 25px;
+        }
+
+        .top-info i {
+            color: var(--primary-red);
+            margin-right: 8px;
+        }
+
+        .top-right a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .top-right a:hover {
+            color: var(--primary-red);
+        }
+
+        .top-socials i {
+            margin-left: 15px;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .top-socials i:hover {
+            color: var(--primary-red);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--header-navy);
+            padding: 0 10%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            height: 100%;
+            align-items: center;
+        }
+
+        .nav-links>li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links li:hover>a {
+            color: var(--primary-red);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            width: 280px;
+            list-style: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--primary-red);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-links li:hover>.dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown li {
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+
+        .dropdown li a {
+            color: #333;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            text-transform: capitalize;
+            font-weight: 600;
+            line-height: 1.4;
+            transition: 0.3s;
+        }
+
+        .dropdown li a::after {
+            content: '\f061';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 10px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: 0.3s;
+            color: var(--primary-red);
+        }
+
+        .dropdown li:hover a {
+            background: #f9f9f9;
+            color: var(--primary-red);
+        }
+
+        .dropdown li:hover a::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .sub-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--white);
+            width: 200px;
+            list-style: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(15px);
+            transition: 0.3s;
+        }
+
+        .dropdown li:hover>.sub-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #fff;
+        }
+
+        .phone-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 20px;
+        }
+
+        .phone-box {
+            background: var(--primary-red);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(11, 13, 23, 0.85), rgba(11, 13, 23, 0.85)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            color: var(--primary-red);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .team-section {
+            padding: 100px 10%;
+            overflow: hidden;
+        }
+
+        .team-grid {
+            display: block;
+        }
+
+        .team-card-wrapper {
+            padding: 0 15px;
+            outline: none;
+        }
+
+        .team-card {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .team-card:hover .social-overlay {
+            right: 20px;
+            opacity: 1;
+        }
+
+        .team-card:hover .info-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .team-section .slick-prev {
+            left: -50px;
+        }
+
+        .team-section .slick-next {
+            right: -50px;
+        }
+
+        /* --- BACK TO TOP BUTTON --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-red);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 999;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 60, 65, 0.3);
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-navy);
+            transform: translateY(-5px);
+        }
+
+        /* --- TEAM SECTION --- */
+        .team-section {
+            padding: 100px 10%;
+            background: #fff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .image-box {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #eee;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease;
+        }
+
+        .team-card:hover img {
+            filter: grayscale(100%);
+            transform: scale(1.05);
+        }
+
+        .social-overlay {
+            position: absolute;
+            top: 30px;
+            right: -60px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: 0.5s ease;
+            opacity: 0;
+        }
+
+        .social-overlay a {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .social-overlay a:hover {
+            background: var(--primary-red);
+        }
+
+        .info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px;
+            background: linear-gradient(to top, rgba(11, 13, 23, 0.9), transparent);
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: 0.5s ease;
+        }
+
+        .info-overlay h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .info-overlay p {
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark-navy);
+            color: var(--text-gray);
+            padding: 80px 10% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--primary-red);
+        }
+
+        .footer-title {
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 3px;
+            background: var(--primary-red);
+        }
+
+        .footer-links p {
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-links p:hover {
+            color: var(--primary-red);
+        }
+
+        /* Contact icons */
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .contact-info i {
+            color: var(--primary-red);
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Logo Icon */
+        .logo::before {
+            content: '\f853';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 10px;
+            color: var(--primary-red);
+            font-size: 24px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+/* --- RESPONSIVENESS & MOBILE MENU --- */
+
+/* TABLETS & SMALL LAPTOPS (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .team-section {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .top-bar {
+        padding: 10px 5%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* MOBILE PHONES (Max-width: 768px) */
+@media (max-width: 768px) {
+    .hero {
+        height: 280px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .team-section {
+        padding: 50px 20px;
+    }
+
+    .image-box {
+        height: 400px; 
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; 
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+
+    .contact-info p {
+        justify-content: center; 
+    }
+
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+
+    .top-info span:nth-child(3) { 
+        display: none; 
+    }
+}
+
+/* SMALL PHONES (Max-width: 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .top-bar {
+        display: none; 
+    }
+
+    .footer-logo {
+        font-size: 28px;
+    }
+    
+    .image-box {
+        height: 350px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <button id="backToTop" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <div class="top-bar">
+        <div class="top-info">
+            <span><i class="fa-solid fa-clock"></i> Mon to Fri: 9:00am to 6:00pm</span>
+            <span><i class="fa-solid fa-envelope"></i> help@company.com</span>
+            <span><i class="fa-solid fa-location-dot"></i> 88 Broklyn Golden Street. New York</span>
+        </div>
+        <div class="top-right">
+            <a href="#">About</a> <a href="#">Faqs</a> <a href="#">Contact</a>
+        </div>
+        <div class="top-socials">
+            <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-facebook-f"></i> <i
+                class="fa-brands fa-pinterest-p"></i> <i class="fa-brands fa-instagram"></i>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#" class="logo">Bix<span>ola</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+        <ul class="nav-links">
+            <li><a href="#">Home +</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+            <li><a href="services.html">Services +</a>
+                <ul class="dropdown">
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="service-carousel.html">Services Carousel</a></li>
+                    <li><a href="service-details.html?s=corp">Corporate & Secretarial Services</a></li>
+                    <li><a href="service-details.html?s=fema">FEMA & Foreign Investment Compliance</a></li>
+                    <li><a href="service-details.html?s=ip">Trademark & Intellectual Property</a></li>
+                    <li><a href="service-details.html?s=rest">Restructuring & Strategic Advisory</a></li>
+                    <li><a href="service-details.html?s=ins">Insolvency & Dispute Resolution</a></li>
+                    <li><a href="service-details.html?s=fin">Financial & CFO Services</a></li>
+                    <li><a href="service-details.html?s=virt">Virtual Office Services</a></li>
+                </ul>
+            </li>
+            <li>
+            <li> <a href="team.html" style="color: var(--primary-red);">Pages +</a>
+                <ul class="dropdown">
+
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="team-carousel.html">Team Carousel</a></li>
+                    <li><a href="team-details.html">Team Details</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Portfolio Carousel</a></li>
+                    <li><a href="#">Portfolio Details</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Testimonials Carousel</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Pricing Carousel</a></li>
+                    <li><a href="#">Appointment</a></li>
+                    <li><a href="#">404 Error</a></li>
+                </ul>
+            </li>
+            <li><a href="#">News +</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="phone-group">
+                <div class="phone-box"><i class="fa-solid fa-phone-volume"></i></div>
+                <div>
+                    <p style="font-size: 11px; color: var(--text-gray);">Have Question?</p>
+                    <p style="font-weight: 800; font-size: 15px; color: #fff;">+92 (8800) - 9850</p>
+                </div>
+            </div>
+            <div class="nav-icons"><i class="fa-solid fa-magnifying-glass"></i> <i
+                    class="fa-solid fa-cart-shopping"></i></div>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <h1>Team Carousel</h1>
+        <p>Home &gt; Team Carousel</p>
+    </section>
+
+    <section class="team-section">
+        <div class="carousel-container">
+            <div class="team-card-wrapper">
+                <div class="team-card">
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600" alt="Harish G">
+                        <div class="social-overlay">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="info-overlay">
+                            <h3>Harish G</h3>
+                            <p>Senior Executive | Secretarial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card-wrapper">
+                <div class="team-card">
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600"
+                            alt="Durgalakshmi TS">
+                        <div class="social-overlay">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                        <div class="info-overlay">
+                            <h3>Durgalakshmi TS</h3>
+                            <p>CS Professional | CS Trainee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card-wrapper">
+                <div class="team-card">
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600" alt="Deepa M">
+                        <div class="social-overlay">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                        <div class="info-overlay">
+                            <h3>Deepa M</h3>
+                            <p>CS Executive | Paid Assistant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="footer-logo">Bix<span>ola</span></a>
+                <p>We work with a passion of taking
+                    challenges and creating new ones in
+                    advertising sector.</p>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Company</h4>
+                <p>Business planning</p>
+                <p>Tax strategy</p>
+                <p>Financial advices</p>
+                <p>Insurance strategy</p>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Contact info</h4>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> 915 Hill Street, USA</p>
+                    <p><i class="fa-solid fa-phone-volume"></i> +1(333) 000-0000</p>
+                    <p><i class="fa-solid fa-envelope"></i> example@email.com</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Working Time</h4>
+                <p>Mon - Sat: 9:00 AM - 5:00 PM</p>
+                <p>Sunday Close</p>
+            </div>
+        </div>
+        <div class="copyright">© Copyright bixola 2026. All rights reserved.</div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        
+        // Cursor Follower
+        const dot = document.querySelector('.cursor-dot');
+        const outline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            dot.style.left = `${e.clientX}px`;
+            dot.style.top = `${e.clientY}px`;
+            outline.animate({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Initialize Slider
+        $(document).ready(function () {
+            $('.carousel-container').slick({
+                dots: true,
+                infinite: true,
+                speed: 800,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                pauseOnHover: true,
+                responsive: [
+                    { breakpoint: 1024, settings: { slidesToShow: 2 } },
+                    { breakpoint: 768, settings: { slidesToShow: 1, arrows: false } }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
